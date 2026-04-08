@@ -1,0 +1,21 @@
+services:
+  claw1:
+    build:
+      context: . # 在當前目錄尋找 Dockerfile
+      args:
+        # 在這裡定義要安裝的套件，這會在 build 階段自動執行
+        - OPENCLAW_DOCKER_APT_PACKAGES=sqlite3 libsqlite3-dev ffmpeg aria2 curl ca-certificates
+    container_name: claw1
+    network_mode: host
+    restart: always
+    env_file:
+      # 環境變數檔案
+      - .env.claw1
+    environment:
+      - OPENCLAW_DOCKER_APT_PACKAGES=
+      - NODE_ENV=production
+      - TZ=Asia/Taipei
+    volumes:
+      #掛載設定檔與資料
+      - ./config_1:/home/node/.openclaw
+      - ./data_1:/home/node/.openclaw/workspace
