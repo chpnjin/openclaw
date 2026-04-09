@@ -1,5 +1,6 @@
 # 基礎鏡像
 FROM ghcr.io/openclaw/openclaw:latest
+# FROM ghcr.io/1186258278/openclaw-zh:latest
 
 # 宣告要接收來自 compose 的參數
 ARG OPENCLAW_DOCKER_APT_PACKAGES

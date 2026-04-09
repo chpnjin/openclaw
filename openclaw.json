@@ -1,0 +1,74 @@
+{
+  "memory": {
+    "backend": "qmd",
+    "qmd": {
+      "includeDefaultMemory": true,
+      "limits": {
+        "timeoutMs": 8000
+      },
+      "paths": [
+        {
+          "name": "docs",
+          "path": "~/notes",
+          "pattern": "**/*.md"
+        }
+      ]
+    }
+  },
+  "gateway": {
+    "auth": {
+      "allowTailscale": true,
+      "mode": "none"
+    },
+    "mode": "local",
+    "port": 18789,
+    "bind": "loopback",
+    "tailscale": {
+      "mode": "serve",
+      "resetOnExit": true
+    },
+    "controlUi": {
+      "allowedOrigins": [
+        "${OPENCLAW_URL}"
+      ]
+    }
+  },
+  "channels": {
+    "telegram": {
+      "enabled": true,
+      "botToken": "${CLAW_TELEGRAM_BOT_TOKEN}",
+      "dmPolicy": "allowlist",
+      "groups": {
+        "*": {
+          "requireMention": true
+        }
+      },
+      "allowFrom": [
+        "${CLAW_TELEGRAM_ALLOW_FROM}"
+      ]
+    }
+  },
+  "agents": {
+    "defaults": {
+      "workspace": "/home/node/.openclaw/workspace",
+      "model": {
+        "primary": "google/gemini-3.1-flash-lite-preview"
+      },
+      "models": {
+        "google/gemini-3.1-pro-preview": {},
+        "google/gemini-3.1-flash-lite-preview": {}
+      }
+    }
+  },
+  "meta": {
+    "lastTouchedVersion": "2026.4.8",
+    "lastTouchedAt": "2026-04-09T15:49:58.520Z"
+  },
+  "plugins": {
+    "entries": {
+      "google": {
+        "enabled": true
+      }
+    }
+  }
+}
