@@ -8,6 +8,9 @@ services:
     container_name: claw1
     network_mode: host
     restart: always
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
     env_file:
       # 環境變數檔案
       - .env.claw1
@@ -19,3 +22,4 @@ services:
       #掛載設定檔與資料
       - ./config_1:/home/node/.openclaw
       - ./data_1:/home/node/.openclaw/workspace
+      

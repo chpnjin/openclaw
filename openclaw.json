@@ -9,7 +9,7 @@
       "paths": [
         {
           "name": "docs",
-          "path": "~/notes",
+          "path": "/home/node/notes",
           "pattern": "**/*.md"
         }
       ]
