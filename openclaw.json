@@ -56,7 +56,16 @@
       },
       "models": {
         "google/gemini-3.1-pro-preview": {},
-        "google/gemini-3.1-flash-lite-preview": {}
+        "google/gemini-3.1-flash-lite-preview": {
+          "concurrency": 1,
+          "requestInterval": 4000
+        }
+      },
+      "concurrency": 1,
+      "retry": {
+        "maxAttempts": 3,
+        "delayMs": 5000,
+        "multiplier": 2
       }
     }
   },
